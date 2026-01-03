@@ -103,15 +103,34 @@ python scripts/query_kb.py --all-stride --pretty
 
 ```
 threat-modeling/
-├── SKILL.md              # ← Claude Code entry point (8-phase workflow)
-├── WORKFLOW.md           # Detailed workflow templates
-├── scripts/              # Tool scripts
-│   ├── list_files.py         # Phase 1: Project structure analysis
-│   ├── stride_matrix.py      # Phase 5: STRIDE matrix
-│   └── unified_kb_query.py   # Phase 5/6/7: Unified KB query
-└── assets/knowledge/            # Dual database knowledge system (317MB)
-    ├── security_kb.sqlite        # Core DB (13MB)
-    └── security_kb_extension.sqlite  # CVE extension (304MB)
+├── SKILL.md                  # ← Claude Code entry point (8-phase workflow)
+├── WORKFLOW.md               # Detailed workflow templates
+├── VALIDATION.md             # Validation rules and quality gates
+├── REPORT.md                 # Report generation templates
+├── README.md / README-cn.md  # Documentation (EN/CN)
+├── EXAMPLES.md / EXAMPLES-cn.md  # Usage examples
+├── VERSION                   # Version number
+├── LICENSE                   # BSD-3-Clause license
+├── scripts/                  # Tool scripts
+│   ├── list_files.py             # Phase 1: Project structure analysis
+│   ├── stride_matrix.py          # Phase 5: STRIDE matrix
+│   ├── unified_kb_query.py       # Phase 5/6/7: Unified KB query
+│   ├── collect_code_stats.py     # Code statistics collection
+│   └── validate_count_conservation.py  # Validation utility
+├── assets/
+│   ├── knowledge/            # Dual database knowledge system
+│   │   ├── security_kb.sqlite    # Core DB (18MB)
+│   │   ├── security-*.yaml       # Security rules and mappings
+│   │   ├── security-controls/    # 16 security domain controls
+│   │   └── semantic_index/       # Semantic search index
+│   ├── schemas/              # Output schema definitions
+│   └── templates/            # Report templates
+├── references/               # Architecture documentation
+│   ├── SKILL-ARCHITECTURE-DESIGN.md      # System architecture
+│   ├── ARCHITECTURE-WORKFLOW-GUIDE.md    # Workflow guide
+│   └── KNOWLEDGE-ARCHITECTURE-v5.2.md    # Knowledge base architecture
+├── kb                        # Knowledge base symlink
+└── skill_path.sh             # Path detection helper
 ```
 
 ---
@@ -128,6 +147,7 @@ The skill automatically activates when you mention these keywords:
 |---------|---------|
 | threat model | 威胁建模 |
 | security assessment | 安全评估 |
+| security check | 安全检查 |
 | DFD / data flow diagram | 数据流图 |
 | trust boundary | 信任边界 |
 | attack surface | 攻击面 |
@@ -240,15 +260,16 @@ Specialized security assessment for AI Agent systems and Claude Code Skills:
 |----------|---------|
 | **[SKILL.md](SKILL.md)** | Claude Code skill entry point (8-phase workflow overview) |
 | **[WORKFLOW.md](WORKFLOW.md)** | Detailed 8-phase deep workflow templates |
-| **[GUIDE.md](GUIDE.md)** | Design philosophy, script reference, KB architecture, troubleshooting |
+| **[README.md](README.md)** | Quick start guide, installation, usage examples |
 | **[EXAMPLES.md](EXAMPLES.md)** | 5 real-world cases (REST API, microservices, AI/LLM, cloud-native) |
 
 ### Architecture Documentation
 
 | Document | Content |
 |----------|---------|
+| **[references/SKILL-ARCHITECTURE-DESIGN.md](references/SKILL-ARCHITECTURE-DESIGN.md)** | System architecture and design principles |
+| **[references/ARCHITECTURE-WORKFLOW-GUIDE.md](references/ARCHITECTURE-WORKFLOW-GUIDE.md)** | Complete architecture and workflow guide |
 | **[references/KNOWLEDGE-ARCHITECTURE-v5.2.md](references/KNOWLEDGE-ARCHITECTURE-v5.2.md)** | Knowledge base architecture (Dual System A+B) |
-| **[references/COMPREHENSIVE-ARCHITECTURE-WORKFLOW-GUIDE.md](references/COMPREHENSIVE-ARCHITECTURE-WORKFLOW-GUIDE.md)** | Complete architecture and workflow guide |
 
 ---
 
@@ -263,10 +284,10 @@ Specialized security assessment for AI Agent systems and Claude Code Skills:
 │                                                                              │
 │  System A: Security Control Hierarchy        System B: Threat Intelligence  │
 │  ─────────────────────────────────           ─────────────────────────────  │
-│  L1: ASVS Control Requirements               L1: STRIDE Classification      │
-│  L2: Security Implementation Patterns        L2: CWE+CAPEC+ATT&CK Mapping   │
-│  L3: Verification Test Cases                 L3: CVE Vulnerability Database │
-│                                              L4: KEV Real-time Intelligence │
+│  L1: Security Principles (11) +              L1: STRIDE Classification      │
+│      Security Domains (16)                   L2: CWE+CAPEC+ATT&CK Mapping   │
+│  L2: Control Sets + OWASP References         L3: CVE Vulnerability Database │
+│  L3: Compliance Frameworks                   L4: KEV Real-time Intelligence │
 │                                                                              │
 │  Verification Set: WSTG(121) + MASTG(206) + ASVS(345) = 672 Tests          │
 │  → Mapped to 1,269 STRIDE+Test combinations                                 │
@@ -294,7 +315,7 @@ E(Elev. of Priv) → CWE-269/284/862 → CAPEC-122/233/17  → T1068/T1548 → C
 
 ## Version History
 
-### v2.0.0 (Current)
+### v2.1.0 (Current)
 
 - **STRIDE→Test Mapping Expansion**: 162 → 1,269 test mappings
 - **Verification Set Integration**: WSTG(121) + MASTG(206) + ASVS(345)
@@ -302,8 +323,6 @@ E(Elev. of Priv) → CWE-269/284/862 → CAPEC-122/233/17  → T1068/T1548 → C
 - **Dual Knowledge Architecture**: System A (Controls) + System B (Threats)
 - **Bilingual Documentation**: Full English + Chinese documentation
 
-See [CHANGELOG.md](CHANGELOG.md) for complete version history.
-
 ---
 
-**Version 2.1.0** | [Full Documentation](GUIDE.md) | [Changelog](CHANGELOG.md) | [中文版](README-cn.md)
+**Version 2.1.0** | [中文版](README-cn.md)

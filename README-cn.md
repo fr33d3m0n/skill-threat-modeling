@@ -127,6 +127,7 @@ threat-modeling/
 |------|---------|
 | 威胁建模 | threat model |
 | 安全评估 | security assessment |
+| 安全检查 | security check |
 | 数据流图 | DFD / data flow diagram |
 | 信任边界 | trust boundary |
 | 攻击面 | attack surface |
@@ -239,15 +240,16 @@ python scripts/unified_kb_query.py --all-llm
 |------|------|
 | **[SKILL.md](SKILL.md)** | Claude Code skill 入口点 (8阶段工作流概览) |
 | **[WORKFLOW.md](WORKFLOW.md)** | 详细 8 阶段深度工作流模板 |
-| **[GUIDE-cn.md](GUIDE-cn.md)** | 设计理念、脚本参考、知识库架构、故障排除 |
+| **[README-cn.md](README-cn.md)** | 快速入门指南、安装说明、使用示例 |
 | **[EXAMPLES-cn.md](EXAMPLES-cn.md)** | 5 个真实案例（REST API、微服务、AI/LLM、云原生） |
 
 ### 架构文档
 
 | 文档 | 内容 |
 |------|------|
+| **[references/SKILL-ARCHITECTURE-DESIGN-cn.md](references/SKILL-ARCHITECTURE-DESIGN-cn.md)** | 系统架构与设计原则 |
+| **[references/ARCHITECTURE-WORKFLOW-GUIDE-cn.md](references/ARCHITECTURE-WORKFLOW-GUIDE-cn.md)** | 完整架构与工作流指南 |
 | **[references/KNOWLEDGE-ARCHITECTURE-v5.2-cn.md](references/KNOWLEDGE-ARCHITECTURE-v5.2-cn.md)** | 知识库架构 (双体系 A+B) |
-| **[references/COMPREHENSIVE-ARCHITECTURE-WORKFLOW-GUIDE-cn.md](references/COMPREHENSIVE-ARCHITECTURE-WORKFLOW-GUIDE-cn.md)** | 完整架构与工作流指南 |
 
 ---
 
@@ -262,10 +264,10 @@ python scripts/unified_kb_query.py --all-llm
 │                                                                              │
 │  体系 A: 安全控制层级                         体系 B: 威胁情报层级          │
 │  ─────────────────────                       ─────────────────────          │
-│  L1: ASVS 控制要求                           L1: STRIDE 威胁分类            │
-│  L2: 安全实现模式                            L2: CWE+CAPEC+ATT&CK 映射      │
-│  L3: 验证测试用例                            L3: CVE 漏洞数据库             │
-│                                              L4: KEV 实时情报               │
+│  L1: 安全原则 (11) +                         L1: STRIDE 威胁分类            │
+│      安全域 (16)                             L2: CWE+CAPEC+ATT&CK 映射      │
+│  L2: 控制集 + OWASP 参考                     L3: CVE 漏洞数据库             │
+│  L3: 合规框架                                L4: KEV 实时情报               │
 │                                                                              │
 │  验证集: WSTG(121) + MASTG(206) + ASVS(345) = 672 测试                     │
 │  → 映射到 1,269 个 STRIDE+测试 组合                                         │
@@ -301,8 +303,6 @@ E(权限提升)   → CWE-269/284/862 → CAPEC-122/233/17  → T1068/T1548 → 
 - **双知识架构**: 体系 A (控制) + 体系 B (威胁)
 - **双语文档**: 完整英文 + 中文文档
 
-完整版本历史请参阅 [CHANGELOG.md](CHANGELOG.md)。
-
 ---
 
-**版本 2.1.0** | [完整文档](GUIDE-cn.md) | [更新日志](CHANGELOG.md) | [English](README.md)
+**版本 2.1.0** | [English](README.md)
