@@ -1,10 +1,10 @@
 <!-- Code-First Deep Threat Modeling Workflow | Version 2.1.0 | https://github.com/fr33d3m0n/skill-threat-modeling | License: BSD-3-Clause | 欢迎引用但请保留所有来源及声明 -->
 
-# STRIDE Skill Set - 知识架构 v5.2
+# STRIDE Skill Set - 知识架构 v5.2.1
 
-**版本**: 5.2
-**日期**: 2026-01-03
-**状态**: Production - v2.0 验证集扩展完成
+**版本**: 5.2.1
+**日期**: 2026-01-04
+**状态**: Production - v2.1 Agentic Security Updated
 
 ---
 
@@ -48,10 +48,10 @@
 │  │   (做什么 & 怎么做)                  │      │   (知道什么 & 验证什么)              │        │
 │  ├─────────────────────────────────────┤      ├─────────────────────────────────────┤        │
 │  │                                     │      │                                     │        │
-│  │  安全域 (15个)                       │      │  CWE 弱点类型 (974)                 │        │
+│  │  安全域 (16个)                       │      │  CWE 弱点类型 (974)                 │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
-│  │  控制集 (17文件, 97控制)             │      │  CAPEC 攻击模式 (615)               │        │
+│  │  控制集 (18文件, 107控制)            │      │  CAPEC 攻击模式 (615)               │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
 │  │  OWASP 参考 (73)                    │      │  ATT&CK 技术 (835)                  │        │
@@ -117,7 +117,7 @@ security-   control-set-  reference-   YAML + SQLite
 design.yaml    *.md        set-*.md   (合规表)
 ```
 
-**安全域 (15个)**:
+**安全域 (16个)**:
 
 | 序号 | 代码 | 名称 | STRIDE | 描述 |
 |-----|------|------|--------|------|
@@ -136,6 +136,7 @@ design.yaml    *.md        set-*.md   (合规表)
 | ext-13 | AI | AI/LLM安全 | - | LLM特定威胁 (OWASP LLM Top 10) |
 | ext-14 | MOBILE | 移动端安全 | - | 移动应用安全 |
 | ext-15 | CLOUD | 云服务安全 | - | 云原生安全控制 |
+| ext-16 | AGENT | Agent安全 | S,T,R,I,D,E | Agent系统和组件安全 (OWASP ASI) |
 
 ### 2.4 威胁模式集
 
@@ -474,7 +475,7 @@ unified_kb_query.py --wstg-category ATHN
 │  │     └── verification-mappings.yaml (25KB) - 验证测试映射                        │   │
 │  │                                                                                   │   │
 │  │     Markdown:                                                                     │   │
-│  │     ├── security-controls/control-set-*.md (17文件)                             │   │
+│  │     ├── security-controls/control-set-*.md (18文件)                             │   │
 │  │     └── security-controls/references/reference-set-*.md (73文件)                │   │
 │  │                                                                                   │   │
 │  │     查询: --control, --llm, --cloud                                             │   │
@@ -508,10 +509,10 @@ unified_kb_query.py --wstg-category ATHN
 
 | 组件 | 数量 | 存储 |
 |------|------|------|
-| 安全原则 | 10 | SKILL.md |
-| 安全域 | 15 (10核心 + 5扩展) | security-design.yaml |
-| 控制集 | 17文件 / 97控制 | Markdown |
-| OWASP参考 | 73 | Markdown |
+| 安全原则 | 11 | SKILL.md |
+| 安全域 | 16 (10核心 + 6扩展) | security-design.yaml |
+| 控制集 | 18文件 / 107控制 | Markdown |
+| OWASP参考 | 77 | Markdown |
 | 合规框架 | 14 | YAML + SQLite |
 | 验证测试 | 672 (WSTG + MASTG + ASVS) | YAML + SQLite |
 
@@ -570,6 +571,7 @@ unified_kb_query.py --wstg-category ATHN
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
+| v5.2.1 | 2026-01-04 | 添加 ext-16 AGENT 安全域 (OWASP ASI)，更新统计数据 |
 | v5.2 | 2025-12-30 | 添加 L1 STRIDE 层描述，完善威胁情报链条 |
 | v5.1 | 2025-12-30 | 中性描述，优化工作流数据流，完整 Phase 6/7/8 规范 |
 | v5.0 | 2025-12-30 | L0 原则设计 + 双轨架构 + YAML/SQLite 映射 |
@@ -578,6 +580,6 @@ unified_kb_query.py --wstg-category ATHN
 
 ---
 
-**文档生成**: Code-First Deep Risk Analysis Skill - Ultrathink Critical Thinking v5.2
+**文档生成**: Code-First Deep Risk Analysis Skill - Ultrathink Critical Thinking v5.2.1
 
 [English Version](KNOWLEDGE-ARCHITECTURE-v5.2.md)

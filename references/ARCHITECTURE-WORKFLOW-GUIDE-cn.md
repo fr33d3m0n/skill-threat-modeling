@@ -2,9 +2,9 @@
 
 # STRIDE Skill Set 综合架构与工作流指南
 
-**版本**: 2.0
-**日期**: 2026-01-03
-**状态**: Production - v2.0 Verification Set Updated
+**版本**: 2.1.0
+**日期**: 2026-01-04
+**状态**: Production - v2.1.0 Agentic Security Updated
 
 ---
 
@@ -40,17 +40,17 @@
 │  ║                                    │                                           ║  │
 │  ║                                    ▼ 指导                                      ║  │
 │  ║  ┌─────────────────────────────────────────────────────────────────────────┐  ║  │
-│  ║  │ L2: Security Design (15个安全域)                                         │  ║  │
+│  ║  │ L2: Security Design (16个安全域)                                         │  ║  │
 │  ║  │     位置: assets/knowledge/security-design.yaml                                 │  ║  │
 │  ║  │     核心域(10): AUTHN, AUTHZ, INPUT, OUTPUT, CLIENT,                     │  ║  │
 │  ║  │                 CRYPTO, LOG, ERROR, API, DATA                            │  ║  │
-│  ║  │     扩展域(5): INFRA, SUPPLY, AI, MOBILE, CLOUD                         │  ║  │
+│  ║  │     扩展域(6): INFRA, SUPPLY, AI, MOBILE, CLOUD, AGENT                  │  ║  │
 │  ║  │     用途: 定义安全评估的检查维度                                         │  ║  │
 │  ║  └─────────────────────────────────────────────────────────────────────────┘  ║  │
 │  ║                                    │                                           ║  │
 │  ║                                    ▼ 实现                                      ║  │
 │  ║  ┌─────────────────────────────────────────────────────────────────────────┐  ║  │
-│  ║  │ L3: Security Controls (17个控制集文件, 97个控制)                         │  ║  │
+│  ║  │ L3: Security Controls (18个控制集文件, 107个控制)                        │  ║  │
 │  ║  │     位置: assets/knowledge/security-controls/control-set-*.md                   │  ║  │
 │  ║  │     内容: 具体安全控制要求和实施指南                                     │  ║  │
 │  ║  │     用途: Phase 4 安全功能评估的检查清单                                 │  ║  │
@@ -169,7 +169,7 @@
 
 **层级关系**: L1 原则 → 指导 L2 域设计 → 约束 L3 控制实现
 
-### L2: Security Design (15个安全域)
+### L2: Security Design (16个安全域)
 
 #### 核心域 (01-10) 与 STRIDE 映射
 
@@ -202,7 +202,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-#### 扩展域 (ext-11 to ext-15) 触发条件
+#### 扩展域 (ext-11 to ext-16) 触发条件
 
 | 扩展域 | Code | 触发条件 | 检测模式 |
 |--------|------|----------|----------|
@@ -211,8 +211,9 @@
 | ext-13 | AI | openai/anthropic SDK, model files | AI库导入, `.pt`, `.onnx` |
 | ext-14 | MOBILE | iOS/Android project | `*.swift`, `*.kt`, `AndroidManifest.xml` |
 | ext-15 | CLOUD | terraform, AWS/Azure/GCP SDK | 云提供商SDK导入 |
+| ext-16 | AGENT | Agent frameworks, MCP, Skills | `langchain`, `crewai`, `mcp.json`, Skills定义 |
 
-### L3: Security Controls (17个控制集)
+### L3: Security Controls (18个控制集)
 
 ```
 security-controls/
@@ -232,12 +233,13 @@ security-controls/
 │   ├── control-set-ext-01_02-auth-patterns.md  # 认证授权交叉模式
 │   └── control-set-ext-10-hardcoded-credentials.md  # 硬编码凭证
 │
-└── 扩展域控制集 (5个)
+└── 扩展域控制集 (6个)
     ├── control-set-ext-11-infrastructure.md    # INFRA: 6控制
     ├── control-set-ext-12-supply-chain.md      # SUPPLY: 6控制
     ├── control-set-ext-13-ai-llm.md            # AI: 6控制
     ├── control-set-ext-14-mobile.md            # MOBILE: 6控制
-    └── control-set-ext-15-cloud.md             # CLOUD: 6控制
+    ├── control-set-ext-15-cloud.md             # CLOUD: 6控制
+    └── control-set-ext-16-agentic.md           # AGENT: 10控制
 ```
 
 ### L4: Scenario Practices (73个OWASP参考)
@@ -261,6 +263,7 @@ security-controls/
 | ext-13 AI | 1 | ai-agent-security |
 | ext-14 MOBILE | 2 | mobile-security |
 | ext-15 CLOUD | 1 | cloud-architecture |
+| ext-16 AGENT | 4 | agentic-security, mcp-security, multi-agent, skill-security |
 
 ---
 
@@ -674,14 +677,14 @@ Data Flow │   │ ✓ │   │ ✓ │ ✓ │   │
 │  ┌─────────────────────┐                   │ L2: Threat          │                  │
 │  │ L2: Security        │◀─────────────────▶│     Intelligence    │                  │
 │  │     Design          │   STRIDE映射      │   (ATT&CK/CAPEC/CWE)│                  │
-│  │     (15域)          │                   │                     │                  │
+│  │     (16域)          │                   │                     │                  │
 │  └──────────┬──────────┘                   └──────────┬──────────┘                  │
 │             │                                         │                              │
 │             ▼                                         ▼                              │
 │  ┌─────────────────────┐                   ┌─────────────────────┐                  │
 │  │ L3: Security        │                   │ L3: Security        │                  │
 │  │     Controls        │◀─────────────────▶│     Verification    │                  │
-│  │     (17控制集)      │   CWE→Control    │   (WSTG/MASTG/ASVS) │                  │
+│  │     (18控制集)      │   CWE→Control    │   (WSTG/MASTG/ASVS) │                  │
 │  └──────────┬──────────┘                   └──────────┬──────────┘                  │
 │             │                                         │                              │
 │             ▼                                         ▼                              │
@@ -1063,11 +1066,11 @@ Reference: reference-set-03-sql-injection-prevention.md
 | 类别 | 统计 |
 |------|------|
 | **体系 A** | |
-| L1 安全原则 | 10 |
-| L2 安全域 | 15 (10核心 + 5扩展) |
-| L3 控制集文件 | 17 |
-| L3 控制条目 | 97 |
-| L4 OWASP参考 | 73 |
+| L1 安全原则 | 11 |
+| L2 安全域 | 16 (10核心 + 6扩展) |
+| L3 控制集文件 | 18 |
+| L3 控制条目 | 107 |
+| L4 OWASP参考 | 77 |
 | **体系 B** | |
 | ATT&CK 技术 | 835 |
 | CAPEC 攻击模式 | 615 |

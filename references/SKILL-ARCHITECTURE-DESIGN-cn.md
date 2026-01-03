@@ -103,7 +103,7 @@
 │  │  │    SQLite 数据库            │  │           YAML 知识文件                          ││ │
 │  │  │                             │  │                                                   ││ │
 │  │  │  security_kb.sqlite (14MB)  │  │  security-design.yaml (17KB)                     ││ │
-│  │  │  ├── CWE (974)              │  │  ├── 15 个安全域                                  ││ │
+│  │  │  ├── CWE (974)              │  │  ├── 16 个安全域                                  ││ │
 │  │  │  ├── CAPEC (615)            │  │  └── 安全域 → STRIDE 映射                        ││ │
 │  │  │  ├── ATT&CK (835)           │  │                                                   ││ │
 │  │  │  ├── WSTG (121)             │  │  stride-library.yaml (5KB)                       ││ │
@@ -122,7 +122,7 @@
 │  │  │                         安全控制 (L3+L4)                                         │ │ │
 │  │  │  security-controls/                                                              │ │ │
 │  │  │  ├── control-set-{01-10}-*.md    ◄── 10 个核心域控制                            │ │ │
-│  │  │  ├── control-set-ext-*.md        ◄── 7 个扩展域控制                             │ │ │
+│  │  │  ├── control-set-ext-*.md        ◄── 8 个扩展域控制                             │ │ │
 │  │  │  └── references/ (73 文件)        ◄── OWASP 场景实践                             │ │ │
 │  │  └─────────────────────────────────────────────────────────────────────────────────┘ │ │
 │  └───────────────────────────────────────────────────────────────────────────────────────┘ │
@@ -248,7 +248,7 @@
 │  │  ├── P1-PROJECT-UNDERSTANDING.md            ◄── Phase 1 工作文档                     │  │
 │  │  ├── P2-DFD-ANALYSIS.md                     ◄── DFD 元素和流程                       │  │
 │  │  ├── P3-TRUST-BOUNDARY.md                   ◄── 边界定义                             │  │
-│  │  ├── P4-SECURITY-DESIGN-REVIEW.md           ◄── 15 域评估                            │  │
+│  │  ├── P4-SECURITY-DESIGN-REVIEW.md           ◄── 16 域评估                            │  │
 │  │  ├── P5-STRIDE-THREATS.md                   ◄── 完整威胁清单                         │  │
 │  │  └── P6-RISK-VALIDATION.md                  ◄── POC 和攻击路径                       │  │
 │  │                                                                                       │  │
@@ -267,7 +267,7 @@
 | DF-01 | P1 | P2,P3,P4 | project_context | 1 对象 |
 | DF-02 | P2 | P3,P4,P5 | dfd_elements | 10-50 元素 |
 | DF-03 | P3 | P4,P5 | boundary_context | 3-10 边界 |
-| DF-04 | P4 | P5,P6 | security_gaps | 15 域评估 |
+| DF-04 | P4 | P5,P6 | security_gaps | 16 域评估 |
 | DF-05 | P5 | P6 | threat_inventory | 50-200 威胁 |
 | DF-06 | P6 | P7,P8 | validated_risks | 5-30 VR |
 | DF-07 | P7 | P8 | mitigation_plan | 5-20 缓解措施 |
@@ -423,7 +423,7 @@
 │  ╠═══════════════════════════════════════════════════════════════════════════════════════╣ │
 │  ║                                                                                        ║ │
 │  ║  步骤:                                          知识文件:                              ║ │
-│  ║  1. 评估 15 个安全域                            - security-design.yaml                ║ │
+│  ║  1. 评估 16 个安全域                            - security-design.yaml                ║ │
 │  ║     (AUTHN, AUTHZ, INPUT, OUTPUT,               - control-set-{01-15}.md              ║ │
 │  ║      CLIENT, CRYPTO, LOG, ERROR,                - reference-set-*.md                   ║ │
 │  ║      API, DATA, INFRA, SUPPLY, AI,                                                     ║ │
@@ -631,7 +631,7 @@
 │  ┃  第2层: 安全控制与实施模式                                                            ┃ │
 │  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫ │
 │  ┃                                                                                        ┃ │
-│  ┃  YAML: security-design.yaml (15 域)                                                   ┃ │
+│  ┃  YAML: security-design.yaml (16 域)                                                   ┃ │
 │  ┃  │                                                                                     ┃ │
 │  ┃  │  核心域 (01-10):                                                                   ┃ │
 │  ┃  │  ├── 01 AUTHN: 认证与会话                                                          ┃ │
@@ -645,14 +645,15 @@
 │  ┃  │  ├── 09 API: API 与服务安全                                                        ┃ │
 │  ┃  │  └── 10 DATA: 数据保护                                                             ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  │  扩展域 (ext-11 到 ext-15):                                                        ┃ │
+│  ┃  │  扩展域 (ext-11 到 ext-16):                                                        ┃ │
 │  ┃  │  ├── ext-11 INFRA: 基础设施安全                                                    ┃ │
 │  ┃  │  ├── ext-12 SUPPLY: 供应链安全                                                     ┃ │
 │  ┃  │  ├── ext-13 AI: AI/LLM 安全                                                        ┃ │
 │  ┃  │  ├── ext-14 MOBILE: 移动安全                                                       ┃ │
-│  ┃  │  └── ext-15 CLOUD: 云安全                                                          ┃ │
+│  ┃  │  ├── ext-15 CLOUD: 云安全                                                          ┃ │
+│  ┃  │  └── ext-16 AGENT: Agent安全 (OWASP ASI)                                           ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  └── security-controls/ (17 控制集 + 73 参考)                                          ┃ │
+│  ┃  └── security-controls/ (18 控制集 + 77 参考)                                          ┃ │
 │  ┃                                                                                        ┃ │
 │  ┃  SQLite: security_control (16) + stride_security_control (37)                          ┃ │
 │  ┃                                                                                        ┃ │
@@ -705,7 +706,7 @@
 | | ATT&CK | 835 | - |
 | | CVE (扩展) | 323,830 | 304MB |
 | | 嵌入向量 | 3,278 | 4.8MB |
-| **第2层** | 安全控制 | 17 文件 | - |
+| **第2层** | 安全控制 | 18 文件 | - |
 | | OWASP 参考 | 73 文件 | - |
 | **第3层** | WSTG | 121 | - |
 | | MASTG | 206 | - |
@@ -830,7 +831,7 @@
 | **Schema** | 4 |
 | **Python 脚本** | 11 |
 | **知识 YAML** | 12 |
-| **安全控制** | 90 (17 + 73 参考) |
+| **安全控制** | 95 (18 + 77 参考) |
 | **SQLite 表** | 25+ |
 | **威胁情报记录** | 326,000+ |
 | **版本** | 2.1.0 |
@@ -846,5 +847,5 @@
 
 ---
 
-**文档版本**: 2.1.0
-**最后更新**: 2026-01-03
+**文档版本**: 2.1.1
+**最后更新**: 2026-01-04

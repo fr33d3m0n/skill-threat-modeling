@@ -1,10 +1,10 @@
 <!-- Code-First Deep Threat Modeling Workflow | Version 2.1.0 | https://github.com/fr33d3m0n/skill-threat-modeling | License: BSD-3-Clause | Welcome to cite but please retain all sources and declarations -->
 
-# STRIDE Skill Set - Knowledge Architecture v5.1
+# STRIDE Skill Set - Knowledge Architecture v5.2
 
-**Version**: 5.2
-**Date**: 2026-01-03
-**Status**: Production - v2.0 Verification Set Expansion Complete
+**Version**: 5.2.1
+**Date**: 2026-01-04
+**Status**: Production - v2.1.0 Agentic Security Updated
 
 ---
 
@@ -48,10 +48,10 @@ The knowledge system consists of two parallel sets that work together:
 │  │      (What to do & How to do)      │      │      (What to know & Validate)      │        │
 │  ├─────────────────────────────────────┤      ├─────────────────────────────────────┤        │
 │  │                                     │      │                                     │        │
-│  │  Security Domains (15)              │      │  CWE Weakness Types (974)           │        │
+│  │  Security Domains (16)              │      │  CWE Weakness Types (974)           │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
-│  │  Control Sets (17 files, 97)        │      │  CAPEC Attack Patterns (615)        │        │
+│  │  Control Sets (18 files, 107)       │      │  CAPEC Attack Patterns (615)        │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
 │  │  OWASP References (73)              │      │  ATT&CK Techniques (835)            │        │
@@ -117,7 +117,7 @@ Security Domains ──▶ Control Sets ──▶ OWASP References ──▶ Com
    design.yaml         *.md               *.md              (compliance tables)
 ```
 
-**Security Domains (15 total)**:
+**Security Domains (16 total)**:
 
 | Seq | Code | Name | STRIDE | Description |
 |-----|------|------|--------|-------------|
@@ -136,6 +136,7 @@ Security Domains ──▶ Control Sets ──▶ OWASP References ──▶ Com
 | ext-13 | AI | AI/LLM安全 | - | LLM-specific threats (OWASP LLM Top 10) |
 | ext-14 | MOBILE | 移动端安全 | - | Mobile app security |
 | ext-15 | CLOUD | 云服务安全 | - | Cloud-native security controls |
+| ext-16 | AGENT | Agent安全 | S,T,R,I,D,E | Agent system and agentic component security (OWASP ASI) |
 
 ### 2.4 Threat Pattern Set
 
@@ -395,7 +396,7 @@ findings_3:
 | **Output** | `findings_4`: Security design gaps |
 
 **Knowledge Loading Strategy**:
-1. Load `security-design.yaml` - Get all 15 domains with core requirements
+1. Load `security-design.yaml` - Get all 16 domains with core requirements
 2. For each relevant domain, load corresponding `control-set-*.md`
 3. When specific implementation details needed, load `reference-set-*.md`
 
@@ -891,8 +892,8 @@ final_report:
 │  │     └── verification-mappings.yaml (25KB) - Verification test mappings         │   │
 │  │                                                                                   │   │
 │  │     Markdown:                                                                     │   │
-│  │     ├── security-controls/control-set-*.md (17 files)                           │   │
-│  │     └── security-controls/references/reference-set-*.md (73 files)              │   │
+│  │     ├── security-controls/control-set-*.md (18 files)                           │   │
+│  │     └── security-controls/references/reference-set-*.md (77 files)              │   │
 │  │                                                                                   │   │
 │  │     Query: --control, --llm, --cloud                                            │   │
 │  └──────────────────────────────────────────────────────────────────────────────────┘   │
@@ -925,10 +926,10 @@ final_report:
 
 | Component | Count | Storage |
 |-----------|-------|---------|
-| Security Principles | 10 | SKILL.md |
-| Security Domains | 15 (10 core + 5 extended) | security-design.yaml |
-| Control Sets | 17 files / 97 controls | Markdown |
-| OWASP References | 73 | Markdown |
+| Security Principles | 11 | SKILL.md |
+| Security Domains | 16 (10 core + 6 extended) | security-design.yaml |
+| Control Sets | 18 files / 107 controls | Markdown |
+| OWASP References | 77 | Markdown |
 | Compliance Frameworks | 14 | YAML + SQLite |
 | Verification Tests | 475 (WSTG + MASTG + ASVS) | YAML + SQLite |
 

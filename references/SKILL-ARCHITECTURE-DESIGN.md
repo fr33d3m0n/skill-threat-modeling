@@ -108,7 +108,7 @@
 │  │  │    SQLite Databases         │  │           YAML Knowledge Files                   ││ │
 │  │  │                             │  │                                                   ││ │
 │  │  │  security_kb.sqlite (14MB)  │  │  security-design.yaml (17KB)                     ││ │
-│  │  │  ├── CWE (974)              │  │  ├── 15 Security Domains                         ││ │
+│  │  │  ├── CWE (974)              │  │  ├── 16 Security Domains                         ││ │
 │  │  │  ├── CAPEC (615)            │  │  └── Domain → STRIDE mapping                     ││ │
 │  │  │  ├── ATT&CK (835)           │  │                                                   ││ │
 │  │  │  ├── WSTG (121)             │  │  stride-library.yaml (5KB)                       ││ │
@@ -127,7 +127,7 @@
 │  │  │                         Security Controls (L3+L4)                                │ │ │
 │  │  │  security-controls/                                                              │ │ │
 │  │  │  ├── control-set-{01-10}-*.md    ◄── 10 Core Domain Controls                    │ │ │
-│  │  │  ├── control-set-ext-*.md        ◄── 7 Extended Domain Controls                 │ │ │
+│  │  │  ├── control-set-ext-*.md        ◄── 8 Extended Domain Controls                 │ │ │
 │  │  │  └── references/ (73 files)       ◄── OWASP Scenario Practices                  │ │ │
 │  │  └─────────────────────────────────────────────────────────────────────────────────┘ │ │
 │  └───────────────────────────────────────────────────────────────────────────────────────┘ │
@@ -253,7 +253,7 @@
 │  │  ├── P1-PROJECT-UNDERSTANDING.md            ◄── Phase 1 working document             │  │
 │  │  ├── P2-DFD-ANALYSIS.md                     ◄── DFD elements and flows               │  │
 │  │  ├── P3-TRUST-BOUNDARY.md                   ◄── Boundary definitions                 │  │
-│  │  ├── P4-SECURITY-DESIGN-REVIEW.md           ◄── 15 domain assessments               │  │
+│  │  ├── P4-SECURITY-DESIGN-REVIEW.md           ◄── 16 domain assessments               │  │
 │  │  ├── P5-STRIDE-THREATS.md                   ◄── Complete threat inventory           │  │
 │  │  └── P6-RISK-VALIDATION.md                  ◄── POCs and attack paths               │  │
 │  │                                                                                       │  │
@@ -272,7 +272,7 @@
 | DF-01 | P1 | P2,P3,P4 | project_context | 1 object |
 | DF-02 | P2 | P3,P4,P5 | dfd_elements | 10-50 elements |
 | DF-03 | P3 | P4,P5 | boundary_context | 3-10 boundaries |
-| DF-04 | P4 | P5,P6 | security_gaps | 15 domain assessments |
+| DF-04 | P4 | P5,P6 | security_gaps | 16 domain assessments |
 | DF-05 | P5 | P6 | threat_inventory | 50-200 threats |
 | DF-06 | P6 | P7,P8 | validated_risks | 5-30 VRs |
 | DF-07 | P7 | P8 | mitigation_plan | 5-20 mitigations |
@@ -428,8 +428,8 @@
 │  ╠═══════════════════════════════════════════════════════════════════════════════════════╣ │
 │  ║                                                                                        ║ │
 │  ║  Steps:                                          Knowledge Files:                      ║ │
-│  ║  1. Assess 15 security domains                   - security-design.yaml               ║ │
-│  ║     (AUTHN, AUTHZ, INPUT, OUTPUT,               - control-set-{01-15}.md             ║ │
+│  ║  1. Assess 16 security domains                   - security-design.yaml               ║ │
+│  ║     (AUTHN, AUTHZ, INPUT, OUTPUT,               - control-set-{01-16}.md             ║ │
 │  ║      CLIENT, CRYPTO, LOG, ERROR,                - reference-set-*.md                  ║ │
 │  ║      API, DATA, INFRA, SUPPLY, AI,                                                    ║ │
 │  ║      MOBILE, CLOUD)                                                                    ║ │
@@ -636,7 +636,7 @@
 │  ┃  LAYER 2: Security Controls & Implementation Patterns                                  ┃ │
 │  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫ │
 │  ┃                                                                                        ┃ │
-│  ┃  YAML: security-design.yaml (15 domains)                                               ┃ │
+│  ┃  YAML: security-design.yaml (16 domains)                                               ┃ │
 │  ┃  │                                                                                     ┃ │
 │  ┃  │  Core Domains (01-10):                                                              ┃ │
 │  ┃  │  ├── 01 AUTHN: Authentication & Session                                             ┃ │
@@ -650,14 +650,15 @@
 │  ┃  │  ├── 09 API: API & Service Security                                                 ┃ │
 │  ┃  │  └── 10 DATA: Data Protection                                                       ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  │  Extended Domains (ext-11 to ext-15):                                               ┃ │
+│  ┃  │  Extended Domains (ext-11 to ext-16):                                               ┃ │
 │  ┃  │  ├── ext-11 INFRA: Infrastructure Security                                          ┃ │
 │  ┃  │  ├── ext-12 SUPPLY: Supply Chain Security                                           ┃ │
 │  ┃  │  ├── ext-13 AI: AI/LLM Security                                                     ┃ │
 │  ┃  │  ├── ext-14 MOBILE: Mobile Security                                                 ┃ │
-│  ┃  │  └── ext-15 CLOUD: Cloud Security                                                   ┃ │
+│  ┃  │  ├── ext-15 CLOUD: Cloud Security                                                   ┃ │
+│  ┃  │  └── ext-16 AGENT: Agentic Security (OWASP ASI)                                     ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  └── security-controls/ (17 control sets + 73 references)                              ┃ │
+│  ┃  └── security-controls/ (18 control sets + 77 references)                              ┃ │
 │  ┃                                                                                        ┃ │
 │  ┃  SQLite: security_control (16) + stride_security_control (37)                          ┃ │
 │  ┃                                                                                        ┃ │
@@ -710,7 +711,7 @@
 | | ATT&CK | 835 | - |
 | | CVE (extension) | 323,830 | 304MB |
 | | Embeddings | 3,278 | 4.8MB |
-| **Layer 2** | Security Controls | 17 files | - |
+| **Layer 2** | Security Controls | 18 files | - |
 | | OWASP References | 73 files | - |
 | **Layer 3** | WSTG | 121 | - |
 | | MASTG | 206 | - |
@@ -833,7 +834,7 @@
 | **Schemas** | 4 |
 | **Python Scripts** | 11 |
 | **Knowledge YAML** | 12 |
-| **Security Controls** | 90 (17 + 73 references) |
+| **Security Controls** | 95 (18 + 77 references) |
 | **SQLite Tables** | 25+ |
 | **Threat Intelligence Records** | 326,000+ |
 | **Version** | 2.1.0 |
@@ -849,5 +850,5 @@
 
 ---
 
-**Document Version**: 2.1.0
-**Last Updated**: 2026-01-03
+**Document Version**: 2.1.1
+**Last Updated**: 2026-01-04
