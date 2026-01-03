@@ -337,7 +337,7 @@ The security knowledge system consists of three complementary sets:
 │  │  Control Sets (18 files, 107)       │      │  CAPEC Attack Patterns (615)        │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
-│  │  OWASP References (77)              │      │  ATT&CK Techniques (835)            │        │
+│  │  OWASP References (74)              │      │  ATT&CK Techniques (835)            │        │
 │  │      │                              │      │      │                              │        │
 │  │      ▼                              │      │      ▼                              │        │
 │  │  Compliance Frameworks (14)         │      │  CVE/KEV Vulnerabilities (323K+)    │        │

@@ -512,7 +512,7 @@ unified_kb_query.py --wstg-category ATHN
 | 安全原则 | 11 | SKILL.md |
 | 安全域 | 16 (10核心 + 6扩展) | security-design.yaml |
 | 控制集 | 18文件 / 107控制 | Markdown |
-| OWASP参考 | 77 | Markdown |
+| OWASP参考 | 74 | Markdown |
 | 合规框架 | 14 | YAML + SQLite |
 | 验证测试 | 672 (WSTG + MASTG + ASVS) | YAML + SQLite |
 

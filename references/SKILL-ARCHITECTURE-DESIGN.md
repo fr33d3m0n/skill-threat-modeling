@@ -658,7 +658,7 @@
 │  ┃  │  ├── ext-15 CLOUD: Cloud Security                                                   ┃ │
 │  ┃  │  └── ext-16 AGENT: Agentic Security (OWASP ASI)                                     ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  └── security-controls/ (18 control sets + 77 references)                              ┃ │
+│  ┃  └── security-controls/ (18 control sets + 74 references)                              ┃ │
 │  ┃                                                                                        ┃ │
 │  ┃  SQLite: security_control (16) + stride_security_control (37)                          ┃ │
 │  ┃                                                                                        ┃ │
@@ -834,7 +834,7 @@
 | **Schemas** | 4 |
 | **Python Scripts** | 11 |
 | **Knowledge YAML** | 12 |
-| **Security Controls** | 95 (18 + 77 references) |
+| **Security Controls** | 92 (18 + 74 references) |
 | **SQLite Tables** | 25+ |
 | **Threat Intelligence Records** | 326,000+ |
 | **Version** | 2.1.0 |

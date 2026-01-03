@@ -424,10 +424,10 @@
 │  ║                                                                                        ║ │
 │  ║  步骤:                                          知识文件:                              ║ │
 │  ║  1. 评估 16 个安全域                            - security-design.yaml                ║ │
-│  ║     (AUTHN, AUTHZ, INPUT, OUTPUT,               - control-set-{01-15}.md              ║ │
+│  ║     (AUTHN, AUTHZ, INPUT, OUTPUT,               - control-set-{01-16}.md              ║ │
 │  ║      CLIENT, CRYPTO, LOG, ERROR,                - reference-set-*.md                   ║ │
 │  ║      API, DATA, INFRA, SUPPLY, AI,                                                     ║ │
-│  ║      MOBILE, CLOUD)                                                                    ║ │
+│  ║      MOBILE, CLOUD, AGENT)                                                             ║ │
 │  ║  2. 识别安全缺口                                                                       ║ │
 │  ║  3. 评级覆盖度 (✅/⚠️/❌)                                                              ║ │
 │  ║                                                                                        ║ │
@@ -653,7 +653,7 @@
 │  ┃  │  ├── ext-15 CLOUD: 云安全                                                          ┃ │
 │  ┃  │  └── ext-16 AGENT: Agent安全 (OWASP ASI)                                           ┃ │
 │  ┃  │                                                                                     ┃ │
-│  ┃  └── security-controls/ (18 控制集 + 77 参考)                                          ┃ │
+│  ┃  └── security-controls/ (18 控制集 + 74 参考)                                          ┃ │
 │  ┃                                                                                        ┃ │
 │  ┃  SQLite: security_control (16) + stride_security_control (37)                          ┃ │
 │  ┃                                                                                        ┃ │
@@ -831,7 +831,7 @@
 | **Schema** | 4 |
 | **Python 脚本** | 11 |
 | **知识 YAML** | 12 |
-| **安全控制** | 95 (18 + 77 参考) |
+| **安全控制** | 92 (18 + 74 参考) |
 | **SQLite 表** | 25+ |
 | **威胁情报记录** | 326,000+ |
 | **版本** | 2.1.0 |

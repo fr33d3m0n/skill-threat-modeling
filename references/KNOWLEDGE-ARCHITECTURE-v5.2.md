@@ -893,7 +893,7 @@ final_report:
 │  │                                                                                   │   │
 │  │     Markdown:                                                                     │   │
 │  │     ├── security-controls/control-set-*.md (18 files)                           │   │
-│  │     └── security-controls/references/reference-set-*.md (77 files)              │   │
+│  │     └── security-controls/references/reference-set-*.md (74 files)              │   │
 │  │                                                                                   │   │
 │  │     Query: --control, --llm, --cloud                                            │   │
 │  └──────────────────────────────────────────────────────────────────────────────────┘   │
@@ -929,7 +929,7 @@ final_report:
 | Security Principles | 11 | SKILL.md |
 | Security Domains | 16 (10 core + 6 extended) | security-design.yaml |
 | Control Sets | 18 files / 107 controls | Markdown |
-| OWASP References | 77 | Markdown |
+| OWASP References | 74 | Markdown |
 | Compliance Frameworks | 14 | YAML + SQLite |
 | Verification Tests | 475 (WSTG + MASTG + ASVS) | YAML + SQLite |
 
